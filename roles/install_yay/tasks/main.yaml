@@ -1,0 +1,8 @@
+- name: install yay package manager
+  tags: download_yay
+  shell: "git clone https://aur.archlinux.org/yay.git"
+
+- name: install yay package manager
+  tags: install_yay
+  shell: "cd yay && makepkg -si"
+  become_user: kay

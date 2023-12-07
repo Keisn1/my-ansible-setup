@@ -1,0 +1,12 @@
+- name: Read package list from the template
+  tags: install_pacman_packages
+  include_vars:
+    file: templates/packages_to_install.j2
+    name: packages_to_install
+
+- name: Install multiple packages
+  tags: install_pacman_packages
+  pacman:
+    name: "{{ packages_to_install.packages }}"
+    state: latest
+  become: true

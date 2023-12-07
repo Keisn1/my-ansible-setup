@@ -1,0 +1,5 @@
+all:
+    hosts:
+        192.168.1.87:
+            ansible_user: kay
+            ansible_ssh_private_key_file: ~/.ssh/ansible

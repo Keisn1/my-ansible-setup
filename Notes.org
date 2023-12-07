@@ -1,0 +1,24 @@
+#+title: Notes
+
+- to install yay, one needs to setup a passwordless user
+- special packages (thought to be installed with yay but didn't work):
+  - archcraft-fonts // needs to be installed manually (git + makepkg)
+  - archcraft-gtk-theme-manhattan // needs to be installed manually (git + makepkg)
+  - nvim-packer-git // asks for pgp keys
+
+- need to install oh-my-zsh
+  - can't execute script because i need to verify something inside the script
+
+  - auto-suggestion with git
+  - zsh-vi-mode with git
+
+- need to download dotfiles + stow
+  - need to delete certain files before stowing dotfiles
+- need to setup sddm video file
+- need to setup wallpapers
+
+- install rust
+- solarized theme
+- the nvim stuff
+- bluetooth (needed to be enabled)
+- background light

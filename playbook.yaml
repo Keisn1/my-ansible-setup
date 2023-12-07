@@ -1,0 +1,34 @@
+- name: Setting hostname
+  hosts: all
+  tags: set_hostname
+  roles:
+    - role: hostname
+
+- name: Setting locales and timezone
+  hosts: all
+  tags: setting_locales_and_timezone
+  roles:
+    - role: locale
+
+- name: Install pacman packages
+  hosts: all
+  tags: install_pacman_packages
+  roles:
+    - role: install_pacman_packages
+
+- name: Install yay packages
+  hosts: all
+  tags: install_yay_packages
+  roles:
+    - role: install_yay_packages
+
+- name: Install oh-my-zsh and plugins
+  hosts: all
+  tags: oh_my_zsh
+  roles:
+    - role: install_oh_my_zsh
+
+- name: Download dotfiles and stow
+  hosts: all
+  roles:
+    - role: dotfiles

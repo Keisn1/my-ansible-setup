@@ -1,0 +1,43 @@
+# - name: copy ssh
+#   tags: copy_ssh
+#   copy:
+#     src: ~/.ssh/
+#     dest: ~/.ssh/
+
+- name: Download dotfiles
+  tags: download_dotfiles
+  become: yes
+  become_user: kay
+  git:
+    repo: "git@github.com:Keisn1/dotfiles_arch.git"
+    dest: "~/.dotfiles"
+
+- name: stow dotfiles
+  tags: stow_dotfiles
+  shell: cd .dotfiles && stow . --adopt && git restore .
+
+- name: install chemacs
+  tags: install_chemacs
+  git:
+    repo: "https://github.com/plexus/chemacs2.git"
+    dest: "~/.emacs.d"
+
+- name: clone doom
+  tags: clone_doom
+  git:
+    repo: "https://github.com/hlissner/doom-emacs"
+    dest: "~/.config/.doom-emacs"
+
+- name: install doom
+  tags: install_doom
+  shell: doom install
+
+- name: clone crafted
+  tags: clone_crafted
+  git:
+    repo: "https://github.com/SystemCrafters/crafted-emacs"
+    dest: "~/.config/.crafted-emacs"
+
+- name: install rust
+  tags: install_rust
+  command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

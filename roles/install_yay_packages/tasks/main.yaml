@@ -1,0 +1,12 @@
+- name: Read package list from the template
+  tags: read_packages_yay
+  include_vars:
+    file: templates/packages_to_install.j2
+    name: packages_to_install
+
+- name: Install multiple packages Yay
+  tags: install_multiple_packages_yay
+  yay:
+    name: "{{ packages_to_install.packages }}"
+    state: latest
+  become: true
